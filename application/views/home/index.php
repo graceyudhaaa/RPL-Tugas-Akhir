@@ -7,7 +7,7 @@
 				<button type="button">Explore</button>
 			</div>
 			<div class="col">
-				<a href="#">
+				<a href="<?= base_url(); ?>penerbit">
 					<div class="card card1">
 						<h5>Akun Penerbit</h5>
 						<p>Halaman khusus untuk pemilik perusahaan penerbit.</p>
