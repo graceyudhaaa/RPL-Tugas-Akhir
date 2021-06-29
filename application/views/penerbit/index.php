@@ -264,7 +264,7 @@
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                 <div class="mdc-card p-0">
-                  <h6 class="card-title card-padding pb-0">Hoverable Table</h6>
+                  <h6 class="card-title card-padding pb-0">Laporan</h6>
                   <div class="table-responsive">
                     <table class="table table-hoverable">
                       <thead>
