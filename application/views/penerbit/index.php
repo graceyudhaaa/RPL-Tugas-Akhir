@@ -194,6 +194,7 @@
         </div>
       </header>
       <!-- Form -->
+      <form method="post" action="<?php echo base_url()."index.php/penerbit/insert"; ?>">
       <div class="page-wrapper mdc-toolbar-fixed-adjust">  
         <main class="content-wrapper">
             <div class="mdc-card">
@@ -202,7 +203,7 @@
                     <div class="mdc-layout-grid__inner">
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                             <div class="mdc-text-field mdc-text-field--outlined">
-                            <input class="mdc-text-field__input" id="text-field-hero-input">
+                            <input class="mdc-text-field__input" id="text-field-hero-input" name="namabuku">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
                                 <div class="mdc-notched-outline__notch">
@@ -215,7 +216,7 @@
                         
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                             <div class="mdc-text-field mdc-text-field--outlined">
-                            <input class="mdc-text-field__input" id="text-field-hero-input">
+                            <input class="mdc-text-field__input" id="text-field-hero-input" name="jumlahpesanan">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
                                 <div class="mdc-notched-outline__notch">
@@ -228,7 +229,7 @@
 
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                             <div class="mdc-text-field mdc-text-field--outlined">
-                            <input class="mdc-text-field__input" id="text-field-hero-input">
+                            <input class="mdc-text-field__input" id="text-field-hero-input" name="harga">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
                                 <div class="mdc-notched-outline__notch">
@@ -241,7 +242,7 @@
 
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                             <div class="mdc-text-field mdc-text-field--outlined">
-                            <input class="mdc-text-field__input" id="text-field-hero-input">
+                            <input class="mdc-text-field__input" id="text-field-hero-input" name="royalty">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
                                 <div class="mdc-notched-outline__notch">
@@ -251,11 +252,14 @@
                             </div>
                             </div>
                         </div>
+
+                        <input class="mdc-button mdc-button--raised" type="submit" name="submit" value="Simpan">
                     </div>
                   </div>
             </div>
         </main>        
       </div>
+      </form>
       <!-- end form -->
 
       <!-- Table -->
@@ -276,30 +280,14 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td class="text-left">Kitab Tatang Sutarman</td>
-                          <td>6900</td>
-                          <td>Rp 90.000</td>
-                          <td>Rp 12.420.000</td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">Iliad</td>
-                          <td>1000</td>
-                          <td>Rp 100.000</td>
-                          <td>Rp 2.000.000</td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">The Art of War</td>
-                          <td>748</td>
-                          <td>Rp 98.000</td>
-                          <td>Rp 1.466.080</td>
-                        </tr>
-                        <tr>
-                          <td class="text-left">Sherlock Holmes</td>
-                          <td>945</td>
-                          <td>Rp 100.000</td>
-                          <td>Rp 1.890.000</td>
-                        </tr>
+                        <?php foreach ($laporan as $lpr) : ?>
+                          <tr>
+                            <td class="text-left"><?= $lpr["NamaBuku"]; ?></td>
+                            <td><?= $lpr["JumlahPesanan"]; ?></td>
+                            <td>Rp <?= $lpr["Harga"]; ?></td>
+                            <td>Rp <?= $lpr["Royalty"]; ?></td>
+                          </tr>
+                        <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>
