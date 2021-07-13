@@ -273,19 +273,27 @@
                     <table class="table table-hoverable">
                       <thead>
                         <tr>
+                          <th>ID</th>
                           <th class="text-left">Nama Buku</th>
                           <th>Jumlah Pesanan</th>
                           <th>Harga</th>
                           <th>Royalty (2%)</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php foreach ($laporan as $lpr) : ?>
                           <tr>
+                            <td><?= $lpr["ID"]; ?></td>
                             <td class="text-left"><?= $lpr["NamaBuku"]; ?></td>
                             <td><?= $lpr["JumlahPesanan"]; ?></td>
                             <td>Rp <?= $lpr["Harga"]; ?></td>
                             <td>Rp <?= $lpr["Royalty"]; ?></td>
+                            <td>
+                            <a href="<?= base_url(); ?>index.php/penerbit/hapus/<?= $lpr["ID"]; ?>" class="mdc-button mdc-button--raised icon-button filled-button--secondary material-icons mdc-button__icon">
+                              <i class="material-icons mdc-button__icon">delete</i>
+                            </a>
+                            </td>
                           </tr>
                         <?php endforeach; ?>
                       </tbody>

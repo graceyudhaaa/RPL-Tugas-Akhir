@@ -8,7 +8,6 @@ class Penerbit extends CI_Controller
     }
 
     public function insert(){
-        $this->load->model('MLaporan_Penerbit');
         $data = array(
             'namabuku' => $this->input->post('namabuku'),
             'jumlahpesanan' => $this->input->post('jumlahpesanan'),
@@ -17,6 +16,11 @@ class Penerbit extends CI_Controller
          );
 
         $data = $this->MLaporan_Penerbit->Insert('laporan_penerbit', $data);
+        redirect(base_url('penerbit'),'refresh');
+    }
+
+    function delete($id){
+        $this->MLaporan_Penerbit->delete($id);
         redirect(base_url('penerbit'),'refresh');
     }
 

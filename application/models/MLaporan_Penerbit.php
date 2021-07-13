@@ -9,4 +9,8 @@ class MLaporan_Penerbit extends CI_Model{
         $res = $this->db->insert($table, $data);
         return $res;
     }
+
+    function delete($id){
+		return $this->db->delete('laporan_penerbit', ["ID" => $id]);
+	}
 }
